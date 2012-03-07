@@ -1,0 +1,33 @@
+/**
+ * "Jumping In" example CSS file
+ */
+
+body { 
+	font-family: Verdana, Arial, sans-serif;
+}
+
+h1 {
+	border-bottom: 1px solid #666; 
+}
+
+#schedule {
+	width: 100%;
+	border: 1px solid #aaa;
+	border-collapse: collapse;
+}
+
+#schedule td, #schedule th {
+	padding: 3px;
+	border: 1px solid #ccc;
+}
+
+#schedule td {
+	font-size: 10pt;
+	height: 50px;
+	vertical-align: top;
+	width: 13.5%;
+}
+
+#schedule td.has-appointment {
+	background-color: #ffc;
+}
