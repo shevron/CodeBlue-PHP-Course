@@ -51,12 +51,12 @@ $appointments = array(
 <?php } ?>
             </tr>
 <?php for($hour = $dayStarts; $hour <= $dayEnds; $hour++) {?>
-            <tr>
+            <tr<?php if ($hour % 2) echo ' class="odd-row"'; ?>>
                 <th class="hour-title"><?php printf("%02d:00", $hour); ?></th>
 <?php
 
 $hourSchedule = build_schedule_row($hour, $appointments);
-foreach($hourSchedule as $data) {
+foreach($hourSchedule as $dayId => $data) {
     if ($data) {
         $class = "has-appointment";
         $data = htmlspecialchars($data);
@@ -64,6 +64,8 @@ foreach($hourSchedule as $data) {
         $class = "no-appointments";
         $data = '&nbsp;';
     }
+
+    if ($dayId >= 5) $class .=" weekend";
 
     echo "<td class=\"$class\">$data</td>";
 }
