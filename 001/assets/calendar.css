@@ -16,6 +16,10 @@ h1 {
 	border-collapse: collapse;
 }
 
+#schedule tr.odd-row {
+	background-color: #eee;
+}
+
 #schedule td, #schedule th {
 	padding: 3px;
 	border: 1px solid #ccc;
@@ -30,4 +34,8 @@ h1 {
 
 #schedule td.has-appointment {
 	background-color: #ffc;
+}
+
+#schedule td.weekend {
+	background-color: #fcc;
 }
