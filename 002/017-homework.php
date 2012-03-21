@@ -54,3 +54,34 @@ $holidays = array(
         23 => 'Festivus'
     )
 );
+
+$months = array(
+    1 => 'January', 'February', 'March', 'April', 'May', 'June',
+         'July', 'August', 'September', 'October', 'November', 'December'
+);
+
+require_once 'includes/homework-funcs.php';
+
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style type="text/css">
+        table { width: 600px; border: 1px solid black; border-collapse: collapse; }
+        table td.holiday { background-color: #ccc; }
+        table td { padding: 3px; border: 1px solid black; vertical-align: top; }
+        table td span { display: block; padding: 5px; }
+
+    </style>
+</head>
+<body>
+<?php
+
+foreach($months as $month => $monthName) {
+    echo "<h1>$monthName</h1>";
+    print_month_calendar($month);
+}
+
+?>
+</body>
+</html>
