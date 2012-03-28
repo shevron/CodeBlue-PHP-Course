@@ -13,7 +13,7 @@
 
 $possibleFiles = get_possible_files();
 
-if (isset($_GET['file']) && $_GET['file']) {
+if (isset($_GET['file']) && $_GET['file'] && in_array($_GET['file'], $possibleFiles)) {
     $file = __DIR__ . '/../' . $_GET['file'];
     $source = highlight_file($file, true);
 } else {
