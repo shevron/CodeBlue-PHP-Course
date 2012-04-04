@@ -1,0 +1,6 @@
+You can learn a lot more about PHP regular expressions 
+at http://il2.php.net/pcre
+
+For example, we did not discuss pattern modifiers (http://il2.php.net/manual/en/reference.pcre.pattern.modifiers.php) at all. 
+
+You can also learn about Regular Expressions in general at http://en.wikipedia.org/wiki/Regular_expression
