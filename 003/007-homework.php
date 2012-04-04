@@ -36,3 +36,69 @@ $choices = array(
 
 // Correct answers
 $answers = array('Arthur', 0, 'To seek the holly grail');
+
+$questionId = 0;
+
+if (isset($_GET['q']) && $_GET['q'] > 0 && $_GET['q'] <= count($questions)) {
+    $questionId = (int) $_GET['q'];
+}
+
+$result = null;
+if ($questionId == count($questions)) {
+    // We have answers to all questions
+    $result = true;
+    foreach($answers as $questId => $answer) {
+        if (! isset($_POST["question-$questId"])) {
+            $result = false;
+            break;
+        }
+
+        if ($_POST["question-$questId"] != $answer) {
+            $result = false;
+            break;
+        }
+    }
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bridge Of Death</title>
+</head>
+
+<body>
+    <h1>Welcome to the Bridge of Death</h1>
+<?php if ($result === null): ?>
+    <h2>Question <?php echo $questionId + 1 ?> out of <?php echo count($questions); ?></h2>
+    <form method="post" action="?q=<?php echo $questionId + 1; ?>">
+<?php foreach($questions as $qId => $question): ?>
+<?php if ($qId == $questionId): ?>
+        <label>Q: <?php echo $questions[$questionId]; ?></label><br />
+        A:
+<?php if (isset($choices[$questionId])): ?>
+        <select name="question-<?php echo $questionId ?>">
+<?php foreach($choices[$questionId] as $choiceId => $choice): ?>
+            <option value="<?php echo $choiceId ?>"><?php echo $choice ?></option>
+<?php endforeach; ?>
+        </select><br />
+<?php else: ?>
+        <input type="text" name="question-<?php echo $questionId ?>" />
+<?php endif; ?>
+<?php else: ?>
+        <input type="hidden" name="question-<?php echo $qId; ?>" value="<?php echo (isset($_POST["question-$qId"]) ? $_POST["question-$qId"] : '') ?>" />
+<?php endif; ?>
+<?php endforeach; ?>
+        <input type="submit" value="Next &raquo;" />
+    </form>
+<?php elseif ($result): ?>
+    <div class="result-correct">
+        <h2>Correct, off you go!</h2>
+    </div>
+<?php else: ?>
+    <div class="result-wrong">
+        <h2>Wrong! you don't cross!</h2>
+    </div>
+<?php endif; ?>
+</body>
+</html>
