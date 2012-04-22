@@ -27,17 +27,21 @@ function getDbConnection()
 function getContactsList()
 {
     $dbh = getDbConnection();
+
+    return array();
 }
 
 /**
  * Get full contact information
  *
  * @param  integer $contactId
- * @return array
+ * @return array|null Returns null if no such contact exists
  */
 function getContactInfo($contactId)
 {
     $dbh = getDbConnection();
+
+    return null;
 }
 
 /**
