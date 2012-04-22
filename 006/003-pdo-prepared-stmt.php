@@ -17,6 +17,6 @@ if (isset($_GET['contactId'])) {
 if ($contactId) {
     $sql = "SELECT * FROM contacts WHERE id = ?";
     $stmt = $dbh->prepare($sql);
-    $result = $stmt->execute(array($contactId));
-    $contact = $result->fetch(PDO::FETCH_ASSOC);
+    if ($stmt->execute(array($contactId)))
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
 }
