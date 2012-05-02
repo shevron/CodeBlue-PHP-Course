@@ -1,0 +1,14 @@
+CREATE DATABASE organizer;
+GRANT ALL PRIVILEGES ON organizer.* TO 'organizer'@'localhost' IDENTIFIED BY 'org4n1z3r';
+USE organizer;
+
+DROP TABLE IF EXISTS contacts;
+CREATE TABLE contacts (
+	id    INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	name  VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	phone VARCHAR(25) DEFAULT NULL,
+	PRIMARY KEY (id),
+	UNIQUE KEY (email)	
+);
+
