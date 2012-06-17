@@ -22,6 +22,10 @@ window.onload = function() {
 <html>
     <head>
         <title>This is a funny site</title>
+        <style type="text/css">
+            body { font-family: Verdana, Arial, sans-serif; text-align: center; }
+            form { margin: 2em 0; }
+        </style>
     </head>
     <body>
         <h1>The Funny Cat Pictures Website</h1>
