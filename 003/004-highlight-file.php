@@ -64,7 +64,7 @@ if (isset($_GET['file']) && $_GET['file']) {
  */
 function get_possible_files()
 {
-    $possibleFiles = glob(__DIR__ . '/../00?/*.php');
+    $possibleFiles = glob(__DIR__ . '/../0??/*.php');
     return array_map('filter_file_path', $possibleFiles);
 }
 
