@@ -21,7 +21,6 @@ abstract class PDOFactory
     static public function factory(array $config)
     {
         $config = self::filterConfiguration($config);
-        var_dump($config);
         if (! isset($config['adapter'])) {
             throw new Exception("No adapter provided in configuration object");
         }
