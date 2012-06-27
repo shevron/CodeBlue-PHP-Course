@@ -1,6 +1,6 @@
 <?php
 
-class FileLines implements Iterator, ArrayAccess
+class FileLines implements Iterator
 {
     protected $handle;
 
@@ -25,7 +25,7 @@ class FileLines implements Iterator, ArrayAccess
 
     public function key()
     {
-        return rand(0, 100000);
+        return $this->lineNum; 
     }
 
     public function next()
