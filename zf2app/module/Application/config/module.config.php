@@ -1,4 +1,7 @@
 <?php
+
+use Zend\Db\Adapter\Adapter as DbAdapter;
+
 return array(
     'router' => array(
         'routes' => array(
@@ -49,4 +52,14 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+
+    'service_manager' => array(
+        'factories' => array(
+            'db-adapter' => function($serviceMgr) {
+                $config = $serviceMgr->get('config');
+                $config = $config['db'];
+                return new DbAdapter($config);
+            }
+        )
+    )
 );

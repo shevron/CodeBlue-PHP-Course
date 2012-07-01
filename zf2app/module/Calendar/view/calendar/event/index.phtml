@@ -2,5 +2,30 @@
 
 $this->headTitle("Event List");
 
+if (! isset($events)) $events = null; /* @var $events Zend\Db\ResultSet\ResultSet */
+
 ?>
-This will be the event list
+<h1>Events List</h1>
+<?php if (count($events)): ?>
+<div id="event-list-container">
+    <p>Found <?php echo count($events); ?> event(s):</p>
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Starts At</th>
+            <th>Duration (minutes)</th>
+        </tr>
+<?php foreach($events as $event): /* @var $event Calendar\Model\Event */ ?>
+        <tr>
+            <td><?php echo $this->escape($event->title); ?></td>
+            <td><?php echo $event->start_at ?></td>
+            <td><?php echo $event->duration_minutes ?></td>
+        </tr>
+<?php endforeach; ?>
+    </table>
+</div>
+<?php else: ?>
+<div class="notice">
+    <h2>No events were found in your database</h2>
+</div>
+<?php endif; ?>

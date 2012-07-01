@@ -2,6 +2,8 @@
 
 // Module configuration for the Calendar module
 
+use Calendar\Model\EventTable;
+
 return array(
     'controller' => array(
         'classes' => array(
@@ -33,4 +35,13 @@ return array(
             __DIR__ . '/../view'
         )
     ),
+
+    'service_manager' => array(
+        'factories' => array(
+            'event-table' => function($serviceMgr) {
+                return new EventTable($serviceMgr->get('db-adapter'));
+            }
+        ),
+
+    )
 );
