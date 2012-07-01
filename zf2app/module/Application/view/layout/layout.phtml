@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 $this->headTitle()->setSeparator(' - ')
                   ->setAutoEscape(false);
 
@@ -14,7 +15,7 @@ $this->headLink(array(
         ));
 
 // HTML5 shim, for IE6-8 support of HTML elements
-$this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript', 
+$this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript',
     array('conditional' => 'lt IE 9',));
 
 echo $this->doctype();
@@ -23,13 +24,13 @@ echo $this->doctype();
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle('ZF2 Skeleton Application') ?>
+    <?php echo $this->headTitle('My Calendar Application') ?>
 
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
     <!-- Le styles -->
     <?php echo $this->headLink() ?>
-    
+
     <!-- Scripts -->
     <?php echo $this->headScript() ?>
 
@@ -46,10 +47,10 @@ echo $this->doctype();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="<?php echo $this->url('home') ?>">Skeleton Application</a>
+          <a class="brand" href="<?php echo $this->url('home') ?>">My Calendar</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="<?php echo $this->url('home') ?>">Home</a></li>
+              <li class="active"><a href="<?php echo $this->url('event') ?>">Event List</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -63,7 +64,7 @@ echo $this->doctype();
       <hr>
 
       <footer>
-        <p>&copy; 2006 - 2012 by Zend Technologies Ltd. All rights reserved.</p>
+        <p>&copy; 2012 CodeBlue Hackers Academy, some rights reserved</p>
       </footer>
 
     </div> <!-- /container -->
