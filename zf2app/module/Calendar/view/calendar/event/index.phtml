@@ -2,6 +2,8 @@
 
 $this->headTitle("Event List");
 
+$this->headLink()->appendStylesheet($this->basePath('/css/calendar.css'));
+
 if (! isset($events)) $events = null; /* @var $events Zend\Db\ResultSet\ResultSet */
 
 ?>
@@ -18,7 +20,7 @@ if (! isset($events)) $events = null; /* @var $events Zend\Db\ResultSet\ResultSe
 <?php foreach($events as $event): /* @var $event Calendar\Model\Event */ ?>
         <tr>
             <td><?php echo $this->escape($event->title); ?></td>
-            <td><?php echo $event->start_at ?></td>
+            <td><?php echo $event->getStartDateTime()->format('F jS Y, H:i') ?></td>
             <td><?php echo $event->duration_minutes ?></td>
         </tr>
 <?php endforeach; ?>

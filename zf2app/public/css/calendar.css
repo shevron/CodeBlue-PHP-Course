@@ -1,0 +1,22 @@
+#event-list-container p {
+	font-size: 14px;
+	margin: 1em 0;
+}
+
+#event-list-container table {
+	font-size: 14px;
+	border: 1px solid #cbcbcb;
+	border-collapse: collapse;
+}
+
+#event-list-container table th {
+	background-color: #fafafa;
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+#event-list-container table td {
+	padding: 5px;
+	min-width: 200px;
+}
